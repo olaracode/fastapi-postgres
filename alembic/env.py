@@ -6,7 +6,18 @@ from sqlalchemy import pool
 from alembic import context
 
 from src.database import Base
-from src.models import *
+from importlib import import_module
+
+# This allows to import all the models in the models directory
+directory_path = "src.models"
+absolute_path = os.path.abspath(directory_path.replace(".", "/"))
+for file_name in os.listdir(absolute_path):
+    if file_name.endswith(".py") and file_name != "__init__.py":
+        # Remove the file extension to get the module name
+        module_name = file_name[:-3]
+
+        # Import the module dynamically
+        module = import_module(f"{directory_path}.{module_name}")
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
