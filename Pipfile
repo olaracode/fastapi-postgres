@@ -13,7 +13,7 @@ psycopg2 = "*"
 
 [scripts]
 start = "uvicorn src.main:app --reload"
-migrate = "alembic alembic revision --autogenerate"
+migrate = "alembic revision --autogenerate"
 upgrade = "alembic upgrade head"
 server = "uvicorn main:app --host"
 
