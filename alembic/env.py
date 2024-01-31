@@ -5,7 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from src.database import Base
+from src.db.database import Base
 from importlib import import_module
 
 # This allows to import all the models in the models directory

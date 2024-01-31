@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException, Depends
-from sqlalchemy.orm import Session
 
-from src.database import engine, SessionLocal
+from src.db.database import engine, SessionLocal
+from src.routes.user import router as UserRouter
 
 app = FastAPI()
+app.include_router(UserRouter, prefix="/user", tags=["user"])
 
 @app.get("/")
 async def root():
