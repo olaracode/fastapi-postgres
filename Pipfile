@@ -10,6 +10,9 @@ psycopg2-binary = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 alembic = "*"
 psycopg2 = "*"
+passlib = "*"
+bcrypt = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
 
 [scripts]
 start = "uvicorn src.main:app --reload"
