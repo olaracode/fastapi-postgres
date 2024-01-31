@@ -10,6 +10,5 @@ class UserCreate(BaseUser):
 
 class UserInDB(BaseUser):
     id: int
-    hashed_password: str
     class Config:
         orm_mode = True
