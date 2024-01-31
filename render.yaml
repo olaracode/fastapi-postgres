@@ -1,0 +1,26 @@
+services:
+  - type: web # valid values: https://render.com/docs/yaml-spec#type
+    region: ohio
+    name: fastapi-postgresql
+    env: python # valid values: https://render.com/docs/yaml-spec#environment
+    buildCommand: "./build.sh"
+    startCommand: "uvicorn src.main:app --host 0.0.0.0 --port $PORT"
+    plan: free # optional; defaults to starter
+    numInstances: 1
+    envVars:
+      - key: KEY
+        value: VALUE-TO-BE-UPDATED
+      -key: ALGORITHM
+        value: HS256
+      - key: PYTHON_VERSION
+        value: 3.11.6
+      - key: POSTGRES_URL # Render PostgreSQL database
+        fromDatabase:
+          name: fastapi-postgresql
+          property: connectionString
+
+databases: # Render PostgreSQL database
+  - name: fastapi-postgresql
+    region: ohio
+    ipAllowList: [] # only allow internal connections
+    plan: free # optional; defaults to starter
