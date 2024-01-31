@@ -1,10 +1,10 @@
-from jose import JWTError, jwt
-from fastapi.security import OAuth2PasswordBearer
-from datetime import datetime, timedelta
-from typing import Annotated, Union
-from fastapi import Depends, HTTPException
 import os
+from fastapi.security import OAuth2PasswordBearer
+from fastapi import Depends, HTTPException
+from jose import JWTError, jwt
+from typing import Annotated, Union
 from pydantic import BaseModel
+from datetime import datetime, timedelta
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 KEY=os.environ.get("KEY")

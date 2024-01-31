@@ -66,7 +66,7 @@ You can use any other virutal environment manager or package manager, but you ne
 
 ## Considerations
 
-1. All the models most be defined inside the `src.models` module so the migrations can be created and run correctly. if you opt to use a different module, you need to update the `alembic/env.py` file to include the models
+1. All the models must be defined inside the `src.models` directory so the migrations can be created and run correctly. if you opt to use a different module/directory, you need to update the `alembic/env.py` file to include the models
 
    ```py
    # Add your models here

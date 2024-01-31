@@ -1,5 +1,5 @@
-from src.db.database import SessionLocal
 from passlib.context import CryptContext
+from src.db.database import SessionLocal
 
 def get_db():
     db = SessionLocal()
