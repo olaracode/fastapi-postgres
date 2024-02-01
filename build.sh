@@ -3,6 +3,7 @@
 # exit on error
 set -o errexit
 
-pipenv install
+python install -r requirements.txt
 
-pipenv run upgrade
+alembic revision --autogenerate
+alembic upgrade head
