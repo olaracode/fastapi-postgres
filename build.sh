@@ -5,5 +5,5 @@ set -o errexit
 
 pip install -r requirements.txt
 
-alembic revision --autogenerate
+
 alembic upgrade head
