@@ -3,7 +3,7 @@
 # exit on error
 set -o errexit
 
-python install -r requirements.txt
+pip install -r requirements.txt
 
 alembic revision --autogenerate
 alembic upgrade head
