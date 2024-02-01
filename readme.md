@@ -12,6 +12,7 @@ You can use any other virutal environment manager or package manager, but you ne
 - [Considerations](#considerations)
 - [Workflow](#workflow)
 - [Authentication](#authentication)
+- [Deploy](#deploy)
 
 ## Installation
 
@@ -148,3 +149,15 @@ This `oauth2_scheme` is used with the `Depends` function inside the `get_current
 FastAPI Recommends this approach but it is worth noting that it's not the only approach for user authentication, other options could be used like `BasicAuth`, `Firebase Authentication`, `Supabase`, `Keycloak`, etc.
 
 The approach you choose to take should be the one in which you are most comfortable with and that best fits your use case.
+
+## Deploy
+
+This template is optimized for a single click deploy on render using the blueprint. To learn more you can check out the `build.sh`for the commands used to deploy and `render.yaml`for the blueprint specifications
+
+**WARNING** while deploying to render you need to update the fastapi Environment Variable for POSTGRES_URL. Since we are using psycopg2 you need to add "ql" to the start of the postgresql url
+
+From:
+`postgres://<postgres_user>:<password>@localhost:5432/<database_name>`
+
+To:
+`postgresql://<postgres_user>:<password>@localhost:5432/<database_name>`
