@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.db.database import engine, SessionLocal
-from src.routes.user import router as UserRouter
+from src.auth.routes import router as UserRouter
 
 app = FastAPI()
 origins = [
@@ -22,6 +22,7 @@ app.add_middleware(
 
 
 app.include_router(UserRouter, prefix="/user", tags=["user"])
+
 
 @app.get("/")
 async def root():
